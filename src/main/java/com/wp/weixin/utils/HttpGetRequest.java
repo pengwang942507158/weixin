@@ -2,11 +2,24 @@ package com.wp.weixin.utils;
 
 
 import com.sun.deploy.net.HttpResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 import sun.net.www.http.HttpClient;
 
 public class HttpGetRequest {
-	public static String get(String url) {
-		try {
+
+
+    public static String get(String url) {
+        RestTemplate restTemplate=new RestTemplate();
+        ResponseEntity<String> responseEntity=restTemplate.getForEntity(url, String.class);
+        if(HttpStatus.OK.equals(responseEntity.getStatusCode())) {
+            return responseEntity.getBody();
+        }else {
+            return null;
+        }
+
+        /*try {
 			HttpGet request = new HttpGet(url);
 			HttpClient httpClient = new DefaultHttpClient();
 			// 执行http get请求					
@@ -26,7 +39,7 @@ public class HttpGetRequest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "";
+		return "";*/
 	}
 
 }
