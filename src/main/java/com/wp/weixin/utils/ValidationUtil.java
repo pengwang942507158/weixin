@@ -1,12 +1,14 @@
 package com.wp.weixin.utils;
 
+import com.wp.weixin.model.Constant;
+import org.springframework.beans.factory.annotation.Value;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 public class ValidationUtil {
-    private static String token="51hgo";
-    
+
     /*
      * 验证签名
      * 
@@ -20,7 +22,7 @@ public class ValidationUtil {
      */
     public static boolean checkSignature(String signature ,String timestamp,String nonce) {
         //构建一个字符串数组
-        String[] strArr=new String[]{token,timestamp,nonce}; 
+        String[] strArr=new String[]{Constant.TOKEN,timestamp,nonce};
         //1）将token、timestamp、nonce三个参数进行字典序排序
         Arrays.sort(strArr);
         //定义一个StringBuffer
@@ -88,15 +90,6 @@ public class ValidationUtil {
             sb.append(sTemp.toUpperCase());  
         }  
         return sb.toString();  
-    }  
-    
- /*   public static void main(String[] args) {
-        byte [] b={'A','E','G'};
-        System.out.println(arrToStr(b)+"-----------------------------------------");
-        System.out.println(bytesToHexString(b)+"-----------------------------------------");  
-        
-        checkSignature(token, token, token);
-        
-    }*/
+    }
 
 }

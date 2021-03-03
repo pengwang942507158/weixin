@@ -1,13 +1,15 @@
 package com.wp.weixin.utils;
 
 import java.io.Writer;
+import java.util.*;
 
+import com.baidu.aip.ocr.AipOcr;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
-import com.wp.weixin.model.ReceiveXmlTextModel;
+import com.wp.weixin.model.*;
 
 /*
  * 封装返回给微信的xml数据
@@ -40,4 +42,7 @@ public class FormatXmlResult {
             };
         }
     });
+
+
+
 }

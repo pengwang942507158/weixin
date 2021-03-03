@@ -1,9 +1,10 @@
 spring:
   profiles:
     active: pro
-
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/weixin
     username: root
-    password: root
+    password: 1234
+
+
